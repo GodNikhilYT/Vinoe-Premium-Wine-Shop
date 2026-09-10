@@ -179,7 +179,9 @@ Possible improvements include:
 
 ##🚀 Live Demo 
 
-<img width="265" height="353" alt="Image" src="https://github.com/user-attachments/assets/97edb0f5-696e-4e69-82e9-1cc18e6100db" />
+<a href="https://vinoe-premium-wine-shop.netlify.app/" target="_blank">
+        <img width="265" height="353" alt="Image" src="https://github.com/user-attachments/assets/97edb0f5-696e-4e69-82e9-1cc18e6100db" />
+</a>
 
 ## 👨‍💻 Author
 
