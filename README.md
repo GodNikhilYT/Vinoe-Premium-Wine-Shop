@@ -177,7 +177,8 @@ Possible improvements include:
 * Product reviews and ratings
 * Deployment with a custom domain
 
-##🔴 Live Demo 
+##🚀 Live Demo 
+
 <img width="265" height="353" alt="Image" src="https://github.com/user-attachments/assets/97edb0f5-696e-4e69-82e9-1cc18e6100db" />
 
 ## 👨‍💻 Author
