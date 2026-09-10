@@ -1,4 +1,4 @@
-<img width="300" height="300" alt="Image" src="https://github.com/user-attachments/assets/49115c0a-1a8e-4b9c-8bf1-909ac8cf646d" />
+ <img width="50" height="50" alt="Image" src="https://github.com/user-attachments/assets/49115c0a-1a8e-4b9c-8bf1-909ac8cf646d" />
 
 # 🍷 Vinoé – Premium Wine Shop
 
