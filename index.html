@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Vinoé - Premium online wine shop"
+  >
+
+  <title>Vinoé | Premium Wine Shop</title>
+
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <!-- ================= AGE VERIFICATION ================= -->
+
+  <!-- ================= ACCESS CODE GATE ================= -->
+
+<div class="code-gate" id="codeGate">
+
+  <div class="code-box">
+
+    <div class="code-logo">🍷</div>
+
+    <div class="wine-tag">
+      NIKHIL CHOUDHARY WINE
+    </div>
+
+    <h1>Welcome to Vinoé</h1>
+
+    <p>
+      Please enter the access code to continue.
+    </p>
+
+    <form onsubmit="checkAccessCode(event)">
+
+      <input
+        type="password"
+        id="accessCode"
+        placeholder="Enter access code"
+        autocomplete="off"
+        required
+      >
+
+      <button
+        type="submit"
+        class="btn btn-dark"
+      >
+        Enter Website
+      </button>
+
+    </form>
+
+    <p
+      class="code-error"
+      id="codeError"
+    >
+      Incorrect access code. Please try again.
+    </p>
+
+    <div class="code-brand">
+      1938's CHOUDHARY WINE
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= AGE VERIFICATION ================= -->
+
+<div class="age-gate" id="ageGate">
+
+  <div class="age-box">
+
+    <div class="age-logo">🍷</div>
+
+    <div class="wine-tag">
+      CHOUDHAERY WINE
+    </div>
+
+    <h1>Welcome to Vinoé</h1>
+
+    <p>
+      This website sells alcoholic beverages.
+      Please confirm that you are legally permitted
+      to view and purchase alcohol in your location.
+    </p>
+
+    <div class="age-actions">
+
+      <button
+        class="btn btn-dark"
+        onclick="verifyAge(true)"
+      >
+        I am of legal drinking age
+      </button>
+
+      <button
+        class="btn btn-outline"
+        onclick="verifyAge(false)"
+      >
+        Exit
+      </button>
+
+    </div>
+
+    <div class="health-warning">
+      <strong>⚠️ HEALTH WARNING</strong>
+      <span>
+        Alcohol consumption can cause health risks and dependence.
+        Do not drink if you are under the legal drinking age,
+        pregnant, driving, or taking medicines that interact with alcohol.
+        Drink responsibly.
+      </span>
+    </div>
+
+    <p class="age-note">
+      Please drink responsibly. Age requirements and
+      alcohol-sale rules vary by location.
+    </p>
+
+  </div>
+
+</div>
+
+  <!-- ================= TOAST ================= -->
+
+  <div class="toast" id="toast"></div>
+
+
+  <!-- ================= CART OVERLAY ================= -->
+
+  <div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+  ></div>
+
+
+  <!-- ================= TOP BAR ================= -->
+
+  <div class="topbar">
+    Premium wines • Secure ordering • Responsible drinking
+  </div>
+
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+
+    <nav class="nav">
+
+      <a href="#home" class="logo">
+        Vino<span>é</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="#home" onclick="closeMobileMenu()">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="#shop" onclick="closeMobileMenu()">
+            Shop
+          </a>
+        </li>
+
+        <li>
+          <a href="#about" onclick="closeMobileMenu()">
+            Our Story
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact" onclick="closeMobileMenu()">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="icon-btn mobile-menu"
+          onclick="toggleMobileMenu()"
+          aria-label="Menu"
+        >
+          ☰
+        </button>
+
+        <button
+          class="icon-btn"
+          onclick="focusSearch()"
+          aria-label="Search"
+        >
+          ⌕
+        </button>
+
+        <button
+          class="icon-btn"
+          onclick="openCart()"
+          aria-label="Shopping cart"
+        >
+          🛒
+
+          <span
+            class="cart-count"
+            id="cartCount"
+          >
+            0
+          </span>
+
+        </button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+      <div class="hero-inner">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Curated • Crafted • Delivered
+          </div>
+
+          <h1>
+            Good wine.<br>
+            Good moments.
+          </h1>
+
+          <p>
+            Discover a carefully selected collection of wines
+            from classic regions and exciting new producers.
+            Find your next bottle for dinner, celebration,
+            or simply because today deserves it.
+          </p>
+
+          <button
+            class="btn btn-primary"
+            onclick="scrollToShop()"
+          >
+            Explore the collection →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section">
+
+      <div class="section-header">
+
+        <div>
+
+          <div class="eyebrow wine-text">
+            Shop by style
+          </div>
+
+          <h2 class="section-title">
+            Find your pour
+          </h2>
+
+        </div>
+
+        <p class="section-subtitle">
+          From bold reds to crisp whites,
+          discover bottles selected for every occasion.
+        </p>
+
+      </div>
+
+
+      <div class="categories">
+
+        <div
+          class="category category-red"
+          onclick="setCategory('Red')"
+        >
+          <h3>Red</h3>
+          <p>Rich, bold & expressive</p>
+        </div>
+
+
+        <div
+          class="category category-white"
+          onclick="setCategory('White')"
+        >
+          <h3>White</h3>
+          <p>Fresh, elegant & bright</p>
+        </div>
+
+
+        <div
+          class="category category-rose"
+          onclick="setCategory('Rosé')"
+        >
+          <h3>Rosé</h3>
+          <p>Light, fresh & vibrant</p>
+        </div>
+
+
+        <div
+          class="category category-sparkling"
+          onclick="setCategory('Sparkling')"
+        >
+          <h3>Sparkling</h3>
+          <p>Celebrate every occasion</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SHOP ================= -->
+
+    <section
+      class="shop-area"
+      id="shop"
+    >
+
+      <div class="shop-inner">
+
+        <div class="section-header">
+
+          <div>
+
+            <div class="eyebrow wine-text">
+              Our collection
+            </div>
+
+            <h2 class="section-title">
+              Featured wines
+            </h2>
+
+          </div>
+
+          <p class="section-subtitle">
+            Carefully selected bottles for wine lovers.
+          </p>
+
+        </div>
+
+
+        <!-- FILTER TOOLBAR -->
+
+        <div class="toolbar">
+
+          <input
+            type="search"
+            class="search"
+            id="searchInput"
+            placeholder="Search wine, region, grape..."
+            oninput="renderProducts()"
+          >
+
+
+          <select
+            id="categoryFilter"
+            onchange="renderProducts()"
+          >
+            <option value="All">
+              All styles
+            </option>
+
+            <option value="Red">
+              Red
+            </option>
+
+            <option value="White">
+              White
+            </option>
+
+            <option value="Rosé">
+              Rosé
+            </option>
+
+            <option value="Sparkling">
+              Sparkling
+            </option>
+          </select>
+
+
+          <select
+            id="sortFilter"
+            onchange="renderProducts()"
+          >
+            <option value="featured">
+              Featured
+            </option>
+
+            <option value="low">
+              Price: Low to High
+            </option>
+
+            <option value="high">
+              Price: High to Low
+            </option>
+
+            <option value="name">
+              Name
+            </option>
+          </select>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div
+          class="products"
+          id="products"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section
+      class="section"
+      id="about"
+    >
+
+      <div class="about">
+
+        <div class="about-image">
+          🍷
+        </div>
+
+
+        <div class="about-copy">
+
+          <div class="eyebrow wine-text">
+            Our philosophy
+          </div>
+
+          <h2>
+            Wine should feel special,
+            not complicated.
+          </h2>
+
+          <p>
+            Vinoé was created around a simple idea:
+            finding a great bottle should be enjoyable.
+            We curate wines with personality, quality,
+            and a story worth sharing.
+          </p>
+
+          <p>
+            Whether you're looking for a dinner companion
+            or something to celebrate, our collection makes
+            discovering your next favourite bottle easy.
+          </p>
+
+          <button
+            class="btn btn-dark"
+            onclick="scrollToShop()"
+          >
+            Shop our wines
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- FEATURES -->
+
+      <div class="features">
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            🍇
+          </div>
+
+          <h3>
+            Curated Selection
+          </h3>
+
+          <p>
+            Thoughtfully selected wines from
+            diverse styles and regions.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            🔒
+          </div>
+
+          <h3>
+            Secure Shopping
+          </h3>
+
+          <p>
+            Designed for a safe and straightforward
+            online shopping journey.
+          </p>
+
+        </div>
+
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            🥂
+          </div>
+
+          <h3>
+            Made for Moments
+          </h3>
+
+          <p>
+            Bottles chosen to make everyday meals
+            and celebrations better.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section
+      class="newsletter"
+      id="contact"
+    >
+
+      <div class="eyebrow">
+        Stay in the loop
+      </div>
+
+      <h2>
+        Discover something new.
+      </h2>
+
+      <p>
+        Join our newsletter for new arrivals,
+        tasting notes and seasonal selections.
+      </p>
+
+
+      <form
+        class="newsletter-form"
+        onsubmit="subscribe(event)"
+      >
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Your email address"
+          required
+        >
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Subscribe
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+
+        <h3>Vinoé</h3>
+
+        <p>
+          A modern online destination for
+          discovering exceptional wines.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Shop</h3>
+
+        <p>
+          <a href="#shop">Red Wine</a>
+        </p>
+
+        <p>
+          <a href="#shop">White Wine</a>
+        </p>
+
+        <p>
+          <a href="#shop">Rosé</a>
+        </p>
+
+        <p>
+          <a href="#shop">Sparkling</a>
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Help</h3>
+
+        <p>
+          <a href="#">Shipping</a>
+        </p>
+
+        <p>
+          <a href="#">Returns</a>
+        </p>
+
+        <p>
+          <a href="#">FAQ</a>
+        </p>
+
+        <p>
+          <a href="#">Contact</a>
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Follow</h3>
+
+        <p>
+          <a href="#">Instagram</a>
+        </p>
+
+        <p>
+          <a href="#">Facebook</a>
+        </p>
+
+        <p>
+          <a href="#">Pinterest</a>
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-health-warning">
+      <strong>⚠️ HEALTH WARNING:</strong>
+      Alcohol can cause health risks and dependence. Drink responsibly.
+      Do not drink and drive. Follow the legal drinking age and local alcohol laws.
+    </div>
+
+    <div class="copyright">
+      © 2026 Vinoé. Demo storefront.
+      Please drink responsibly.
+    </div>
+
+  </footer>
+
+
+  <!-- ================= CART ================= -->
+
+  <aside
+    class="cart-panel"
+    id="cartPanel"
+  >
+
+    <div class="cart-header">
+
+      <h2>
+        Your Cart
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeCart()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+
+    <div class="cart-footer">
+
+      <div class="subtotal">
+
+        <span>
+          Subtotal
+        </span>
+
+        <strong id="cartTotal">
+          ₹0
+        </strong>
+
+      </div>
+
+
+      <button
+        class="btn btn-dark full-btn"
+        onclick="checkout()"
+      >
+        Proceed to Checkout
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- ================= PRODUCT MODAL ================= -->
+
+  <div
+    class="modal"
+    id="productModal"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="modal-close"
+        onclick="closeProduct()"
+      >
+        ×
+      </button>
+
+
+      <div class="product-modal">
+
+        <div
+          class="large-bottle"
+          id="modalBottle"
+        ></div>
+
+
+        <div class="modal-content">
+
+          <div
+            class="product-type"
+            id="modalType"
+          ></div>
+
+          <h2 id="modalName"></h2>
+
+          <div
+            class="modal-price"
+            id="modalPrice"
+          ></div>
+
+          <p id="modalDescription"></p>
+
+          <p>
+            <strong>Serving:</strong>
+            Serve according to the wine style
+            and producer's recommendation.
+          </p>
+
+          <button
+            class="btn btn-dark"
+            id="modalAdd"
+          >
+            Add to cart
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= CHECKOUT MODAL ================= -->
+
+  <div
+    class="modal"
+    id="checkoutModal"
+  >
+
+    <div
+      class="modal-box checkout-box"
+    >
+
+      <button
+        class="modal-close"
+        onclick="closeCheckout()"
+      >
+        ×
+      </button>
+
+
+      <div class="eyebrow wine-text">
+        Secure checkout
+      </div>
+
+      <h2 class="checkout-title">
+        Complete your order
+      </h2>
+
+
+      <form
+        onsubmit="placeOrder(event)"
+      >
+
+        <div class="checkout-form">
+
+          <input
+            required
+            placeholder="Full name"
+          >
+
+          <input
+            required
+            type="email"
+            placeholder="Email address"
+          >
+
+          <input
+            required
+            type="tel"
+            placeholder="Phone number"
+          >
+
+          <textarea
+            required
+            placeholder="Delivery address"
+            rows="4"
+          ></textarea>
+
+
+          <select required>
+
+            <option value="">
+              Select payment method
+            </option>
+
+            <option>
+              Cash on Delivery
+            </option>
+
+            <option>
+              Online Payment
+            </option>
+
+          </select>
+
+
+          <label class="checkbox-label">
+
+            <input
+              type="checkbox"
+              required
+            >
+
+            I confirm that I meet the applicable
+            legal age requirement and that the
+            purchase complies with local alcohol laws.
+
+          </label>
+
+
+          <button
+            class="btn btn-dark"
+            type="submit"
+          >
+            Place Order
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
+</body>
+</html>
