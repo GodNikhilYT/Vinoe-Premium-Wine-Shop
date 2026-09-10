@@ -1,3 +1,5 @@
+<img width="1254" height="1254" alt="Image" src="https://github.com/user-attachments/assets/49115c0a-1a8e-4b9c-8bf1-909ac8cf646d" />
+
 # 🍷 Vinoé – Premium Wine Shop
 
 Vinoé is a modern, responsive **premium wine shop demo website** built using HTML, CSS, and JavaScript. The project provides a polished e-commerce-style interface for browsing wine products, filtering and searching products, managing a shopping cart, viewing product details, and completing a demo checkout flow.
